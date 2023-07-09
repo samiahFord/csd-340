@@ -1,0 +1,58 @@
+<!-- Samiah Ford : Assignment 10.3 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Samiah Ford" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSD 340 Development with HTML and CSS</title>
+    <script>
+      function displayMessage(imageID) {
+        var message = document.getElementById("message");
+        var messagetxt = "";
+
+        if (imageID == "candle") messagetxt = "You clicked on the candle!";
+        if (imageID == "landscape")
+          messagetxt = "You clicked on the landscape!";
+
+        message.innerHTML = messagetxt;
+      }
+    </script>
+    <style>
+      img {
+        max-height: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Assignment 10.3 – JavaScript - Part 2</h1>
+      <h2>Move your mouse over the images to change the image.</h2>
+      <br />
+      <h2>Click the images to display a message!</h2>
+      <div>
+        <a
+          onmouseover="candle.src='src/lit.jpeg';"
+          onmouseout="candle.src='src/unlit.jpeg';"
+          onclick="displayMessage('candle');"
+        >
+          <img border="0" name="candle" src="src/unlit.jpeg" />
+        </a>
+      </div>
+      <div>
+        <a
+          onmouseover="landscape.src='src/brightlandscape.jpeg';"
+          onmouseout="landscape.src='src/darklandscape.jpeg';"
+          onclick="displayMessage('landscape');"
+        >
+          <img border="0" name="landscape" src="src/darklandscape.jpeg" />
+        </a>
+      </div>
+      <br />
+      <div>
+        <div><h1 id="message"></h1></div>
+      </div>
+    </div>
+  </body>
+</html>
