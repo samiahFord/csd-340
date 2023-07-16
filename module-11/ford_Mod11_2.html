@@ -1,0 +1,73 @@
+<!-- Samiah Ford : Assignment 11.2 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Samiah Ford" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSD 340 Development with HTML and CSS</title>
+    <script>
+      //array to store to-do list items
+      var items = new Array();
+      //add button method
+      function addItem() {
+        var item = document.getElementById("itemInput").value;
+        items.push(item);
+        //clearing textbox after the entry is added
+        document.getElementById("itemInput").value = "";
+        window.alert(item + " has been successfully added to the list");
+      }
+      //delete last item method
+      function deleteItem() {
+        var popped = items.pop();
+        window.alert(popped + " has been removed from the To-Do list");
+      }
+      //display items method
+      function displayItems() {
+        clearTable();
+        for (var i = 0; i < items.length; i++) {
+          var table = document
+            .getElementById("toDoTable")
+            .getElementsByTagName("tbody")[0];
+          var row = table.insertRow(i);
+          var itemNo = row.insertCell(0);
+          var item = row.insertCell(1);
+          itemNo.innerHTML = i + 1;
+          item.innerHTML = items[i];
+        }
+      }
+      //delete rows in the table
+      function clearTable() {
+        document
+          .getElementById("toDoTable")
+          .getElementsByTagName("tbody")[0].innerHTML = "";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Assignment 11.2 – JavaScript - Part 3</h1>
+      <h3>Interactive To-Do list</h3>
+      <p>
+        To use this To-Do list type in your first item and then click the "Add"
+        button.<br />
+        To delete the last item added, click the "Delete Last Entry" button.<br />
+        To see the items in the list, select the "Display" button.
+      </p>
+      <input type="text" id="itemInput" />
+      <button name="add" onclick="addItem()">Add</button>
+      <button name="delete" onclick="deleteItem()">Delete Last Entry</button>
+      <button name="display" onclick="displayItems()">Display</button>
+      <hr />
+      <h3>To-do List:</h3>
+      <table id="toDoTable">
+        <thead>
+          <th>Item No.</th>
+          <th>Item</th>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
+</html>
