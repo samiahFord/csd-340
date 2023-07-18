@@ -1,0 +1,70 @@
+<!-- Samiah Ford    Module 12.2-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Samiah Ford" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="ford_Mod12_2.css" />
+    <title>CSD 340 Development with HTML and CSS</title>
+    <script>
+      var books = [
+        "Kindred - Octavia E. Butler",
+        "Circe - Madeline Miller",
+        "The Atlas Six - Olivie Blake",
+        "The Song of Achilles - Madeline Miller",
+        "The Institute - Stephen King",
+        "Wild Seed - Octavia E. Butler",
+        "The Silence of Six - E. C. Meyers",
+        "Lovecraft Country - Matt Ruff",
+        "Children of Blood and Bone - Tomi Adeyemi",
+        "Children of Virtue and Vengeance - Tomi Adeyemi",
+      ];
+      function sortAscending() {
+        var list = document.getElementById("list");
+        list.innerHTML = "";
+        books.forEach((book) => {
+          var listItem = document.createElement("li");
+          listItem.innerHTML = book;
+          list.appendChild(listItem);
+          list.removeAttribute("reversed");
+        });
+      }
+      function sortDescending() {
+        var list = document.getElementById("list");
+        list.innerHTML = "";
+        for (var i = books.length - 1; i >= 0; i--) {
+          var listItem = document.createElement("li");
+          listItem.innerHTML = books[i];
+          list.appendChild(listItem);
+          list.setAttribute("reversed", "");
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Assignment 12.2: JavaScript - Part 4</h1>
+      <div id="left">
+        <h3>Top 10 Favorite Books</h3>
+        <button name="asc" onclick="sortAscending()">Top to Bottom</button>
+        <button name="desc" onclick="sortDescending()">Bottom to Top</button>
+        <ol id="list"></ol>
+      </div>
+      <div id="right">
+        <h3>5 Things I’ve Learned Since the Course Started</h3>
+        <ul>
+          <li>How to use Google fonts</li>
+          <li>How to make a landing page on GitHub</li>
+          <li>How to effectively commit and push to GitHub</li>
+          <li>How to make a HTML page</li>
+          <li>How to make a style sheet</li>
+        </ul>
+      </div>
+      <div id="bottom">
+        <a href="../index.html">Landing Page</a>
+      </div>
+    </div>
+  </body>
+</html>
